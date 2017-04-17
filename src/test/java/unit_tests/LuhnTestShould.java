@@ -14,7 +14,12 @@ public class LuhnTestShould {
     }
 
     @Test
-    public void not_pass_for_invalid_digits() {
+    public void not_pass_for_inputs_with_invalid_digits() {
         assertThat(LuhnTest.passes("00000000001"), is(false));
+    }
+
+    @Test
+    public void pass_for_inputs_with_all_zeroes_but_two_valid_digits_in_the_last_positions() {
+        assertThat(LuhnTest.passes("00000000018"), is(true));
     }
 }
