@@ -12,4 +12,9 @@ public class LuhnTestShould {
     public void pass_for_digits_with_all_zeroes() {
         assertThat(LuhnTest.passes("000000000"), is(true));
     }
+
+    @Test
+    public void not_pass_for_invalid_digits() {
+        assertThat(LuhnTest.passes("000000001"), is(false));
+    }
 }
