@@ -22,5 +22,7 @@ public class LuhnTestShould {
     public void pass_for_inputs_with_all_zeroes_but_two_valid_digits_in_the_last_positions() {
         assertThat(LuhnTest.passes("00000000018"), is(true));
         assertThat(LuhnTest.passes("00000000026"), is(true));
+        assertThat(LuhnTest.passes("00000000091"), is(true));
+        assertThat(LuhnTest.passes("00000000083"), is(true));
     }
 }
