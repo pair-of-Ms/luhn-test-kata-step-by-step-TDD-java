@@ -4,15 +4,11 @@ public class LuhnTest {
 
     public static boolean passes(String digits) {
         String reversedDigits = new StringBuilder(digits).reverse().toString();
-        String firsDigit = reversedDigits.substring(0,1);
-        String secondDigit = reversedDigits.substring(1, 2);
-        String thirdDigit = reversedDigits.substring(2,3);
-        String fourthDigit = reversedDigits.substring(3,4);
 
-        int result = Integer.parseInt(firsDigit) +
-            addDigitComponents((Integer.parseInt(secondDigit) * 2)) +
-            Integer.parseInt(thirdDigit) +
-            addDigitComponents((Integer.parseInt(fourthDigit) * 2));
+        int result = Integer.parseInt(reversedDigits.substring(0,1)) +
+            addDigitComponents((Integer.parseInt(reversedDigits.substring(1, 2)) * 2)) +
+            Integer.parseInt(reversedDigits.substring(2,3)) +
+            addDigitComponents((Integer.parseInt(reversedDigits.substring(3,4)) * 2));
 
         return (result % 10) == 0;
     }
