@@ -6,8 +6,9 @@ public class LuhnTest {
         String reversedDigits = new StringBuilder(digits).reverse().toString();
 
         int result = Integer.parseInt(reversedDigits.substring(0,1)) +
-            addDigitComponents((Integer.parseInt(reversedDigits.substring(1, 2)) * 2)) +
             Integer.parseInt(reversedDigits.substring(2,3)) +
+
+            addDigitComponents((Integer.parseInt(reversedDigits.substring(1, 2)) * 2)) +
             addDigitComponents((Integer.parseInt(reversedDigits.substring(3,4)) * 2));
 
         return (result % 10) == 0;
