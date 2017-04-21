@@ -30,4 +30,9 @@ public class LuhnTestShould {
     public void pass_for_inputs_with_all_zeroes_but_three_valid_digits_in_the_last_positions() {
         assertThat(LuhnTest.passes("00000000117"), is(true));
     }
+
+    @Test
+    public void pass_for_inputs_with_all_zeroes_but_four_valid_digits_in_the_last_positions() {
+        assertThat(LuhnTest.passes("00000001115"), is(true));
+    }
 }

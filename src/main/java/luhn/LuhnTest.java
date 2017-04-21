@@ -7,10 +7,12 @@ public class LuhnTest {
         String firsDigit = reversedDigits.substring(0,1);
         String secondDigit = reversedDigits.substring(1, 2);
         String thirdDigit = reversedDigits.substring(2,3);
+        String fourthDigit = reversedDigits.substring(3,4);
 
         int result = Integer.parseInt(firsDigit) +
             addDigitComponents((Integer.parseInt(secondDigit) * 2)) +
-            Integer.parseInt(thirdDigit);
+            Integer.parseInt(thirdDigit) +
+            addDigitComponents((Integer.parseInt(fourthDigit) * 2));
 
         return (result % 10) == 0;
     }
