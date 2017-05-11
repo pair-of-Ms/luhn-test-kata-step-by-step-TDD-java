@@ -1,15 +1,23 @@
 package luhn;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LuhnTest {
 
     public static boolean passes(String digits) {
         String reversedDigits = new StringBuilder(digits).reverse().toString();
+        List<String> reversedDigitsList = Arrays.asList(reversedDigits.split(""));
 
-        int result = Integer.parseInt(reversedDigits.substring(0,1)) +
-            Integer.parseInt(reversedDigits.substring(2,3)) +
+        int result = 0;
 
-            addDigitComponents((Integer.parseInt(reversedDigits.substring(1, 2)) * 2)) +
-            addDigitComponents((Integer.parseInt(reversedDigits.substring(3,4)) * 2));
+        for (int i = 0; i < reversedDigitsList.size(); i++) {
+            if (i % 2 == 0) {
+                result += Integer.parseInt(reversedDigitsList.get(i));
+            } else {
+                result += addDigitComponents(Integer.parseInt(reversedDigitsList.get(i)) * 2);
+            }
+        }
 
         return (result % 10) == 0;
     }
